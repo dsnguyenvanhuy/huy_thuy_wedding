@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Đám cưới sẽ diễn ra sau :</h1>
+    <div id="countdown" class="countdown-container">
+        <div class="countdown-item">
+            <span class="countdown-number" id="days"></span>
+            <span class="countdown-label">Ngày</span>
+        </div>
+        <div class="countdown-item">
+            <span class="countdown-number" id="hours"></span>
+            <span class="countdown-label">Giờ</span>
+        </div>
+        <div class="countdown-item">
+            <span class="countdown-number" id="minutes"></span>
+            <span class="countdown-label">Phút</span>
+        </div>
+        <div class="countdown-item">
+            <span class="countdown-number" id="seconds"></span>
+            <span class="countdown-label">Giây</span>
+        </div>
+    </div>
+</header>
+
+<section id="gioithieu">
+    <div class="container">
+        <h3>Chú rể</h3>
+        <h1>NGUYỄN VĂN HUY</h1>
+        <h1>&</h1>
+        <h3>Cô dâu</h3>
+        <h1>NGUYỄN THÍCH BÍCH THUỲ</h1>
+    </div>
+</section>
+
+<section id="banmap">
+    <div class="container">
+        <h2>Bản Đồ</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3714.6801292259165!2d106.28468507597664!3d21.40249597483587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDI0JzA5LjAiTiAxMDbCsDE3JzE0LjEiRQ!5e0!3m2!1svi!2s!4v1711783567501!5m2!1svi!2s"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+<section id="lienhe">
+    <div class="container">
+        <h2>Liên Hệ</h2>
+        <p>Để biết thêm thông tin, vui lòng liên hệ:</p>
+        <p>Email: your_email@example.com</p>
+        <p>Số Điện Thoại: 0123456789</p>
+        <p>Số Tài Khoản Ngân Hàng: 1234 5678 9012 3456 (Ngân hàng ABC)</p>
+    </div>
+</section>
+
+<footer>
+    <p>Bản quyền &copy; 2024 - HUY&THUY</p>
+</footer>
+<script>
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000); // Cập nhật đồng hồ mỗi giây
+    function updateCountdown() {
+        const weddingDate = new Date('2024-04-27T14:00:00');
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerHTML = days;
+        document.getElementById('hours').innerHTML = hours;
+        document.getElementById('minutes').innerHTML = minutes;
+        document.getElementById('seconds').innerHTML = seconds;
+
+        if (distance < 0) {
+            document.getElementById('countdown').innerHTML = "Đám cưới đã diễn ra!";
+        }
+    }
+</script>
+</body>
+</html>
